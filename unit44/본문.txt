@@ -1,0 +1,24 @@
+모듈과 패키지 사용하기
+
+import로 모듈가져오기
+import 모듈이름
+모듈.변수 형식으로 모듈의 변수 사용
+모듈.함수()형식으로 모듈의 함수 사용
+
+import as로 모듈이름 지정하기
+import 모듈 as 이름
+
+from import로 모듈의 일부만 가져오기
+from 모듈 import 변수 (as 이름)
+from 모듈 import 함수 (as 이름)
+from 모듈 import 클래스 (as 이름)
+
+가져온 모듈 해제
+del 모듈
+
+import로 패키지 가져오기
+import 패키지.모듈
+
+파이썬 패키지 인덱스 에서 패키지 설치하기
+cmd에서 
+pip install 패키지

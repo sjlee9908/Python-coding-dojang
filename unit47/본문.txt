@@ -1,0 +1,153 @@
+10진수 -> 2진수
+bin(정수)
+
+2진수 -> 10진수
+int('2진수문자열', 2)
+
+비트 논리 연산자
+AND	&
+OR	|
+XOR	^
+NOT	~
+
+시프트 연산자
+비트<<비트를 왼쪽으로 이동시킬 횟수
+비트>>비트를 오른쪽으로 이동시킬 횟수
+
+bytes
+1바이트 단위의 값을 연속적으로 저장하는 시퀀스 자료형(수정불가)
+bytes(길이)	정해진 길이만큼 0으로 채워진 바이트 객체 생성
+bytes(반복가능한 객체)	
+bytes(바이트 객체)	문자열 앞에 b를 붙이면 바이트 객체가 됨
+
+bytesarray
+1바이트 단위로 값을 연속적으로 저장하는 시퀀스 자료형(수정가능)
+bytesarray()	빈바이트배열객체 생성
+bytesarray(길이)	정해진 길이 만큼 0으로 채워진 바이트 배열 객체 생성
+bytesarray(반복가능한 객체)
+bytesarray(바이트객체)
+bytearray에 값을 할당할 때에는 정수를 넣어줘야함(아스키코드)
+
+'문자열'.encode()
+해당 인코딩으로 된 바이트 객체를 만듬
+
+바이트객체. decode()
+바이트객체를 문자열로 바꿈
+바이트객체가 특정 인코딩으로 되어있다면 인코딩 지정
+
+time모듈로 현재 시간구하기
+import time
+time.time()
+
+날짜와 시간 형태로 변환
+time.localtime(초)
+time.time()에서 반환한 값을 날짜와 시간형태로 변환
+
+날짜, 시간 포맷에 맞춰 출력
+time.strftime('포맷', 시간객체)
+
+datetime모듈로 현재 날짜와 시간 구하기
+import datetime
+datetime.datetime.today()
+
+datetime 모듈로 UTC기준으로 현재 날짜, 시간 구하기
+import pytz
+datetime.datetime.now(pytz.timezone('UTC'))
+
+특정 날짜와 시간으로 객체 만들기
+datetime.datetime(년도, 월, 날짜)
+
+문자열로 날짜,시간 객체 만들기
+datetime.datetime.strptime('날짜문자열', '포맷')
+
+날짜, 시각 객체를 문자열로 만들기
+datetime객체.strftime('포맷')
+
+날짜와 시간 속성에 접근하기
+datetime.datetime 객체에서 년도, 월, 일, 시, 분, 초, 마이크로초 속성을 가져올 수 있음
+
+날짜와 시간차이 계산하기
+datetime.datetime객체 - datetime.timedelta(days=뺄날짜)
+
+두 실수가 같은 지 판단하기
+부동소수점으로는 정확한 판단 불가
+import math
+math.is_close(소수, 소수)
+
+Decimal로 정확한 자릿수 표현
+소수를 10진수로 처리해 정확한 소수점 자릿수 표현
+from decimal import Decimal
+Decimal('소수')+Decimal('소수')
+
+Fraction으로 분수표현하기
+from fractions import Fraction
+Fraction('분수')
+
+
+with as에 사용할 수 있는 클래스 만들기
+class 클래스이름:
+	def __enter__(self):
+		시작할 때 실행할 코드
+	def __exit__(self, exc_type, exc_value, traceback):
+		종료할 떄 실행할 코드
+with에 클래스의 인스턴스를 지정하고 as뒤에 결과를 저장할 변수 지정
+with 인스턴스 as 변수:
+	코드
+
+클래스를 만드는 클래스인 메타클래스 만들기
+type사용해 동적으로 클래스 생성하기
+클래스=type('클래스이름', 기반클래스튜플, 속성메서드딕셔너리)
+
+type를 상속받아 메타클래스 만들기
+class 메타클래스이름(type):
+	def __new__(metacls, name, bases, namespace):
+		코드
+
+asyncio 사용하기
+asyncio	비동기 프로그래밍을 위한 모듈
+	cpu작업과 io를 병렬로 처리하게 해줌
+
+네이티브 코루틴 만들기
+async def 함수이름:
+	코드
+이벤트루프=asyncio.get_event_loop()
+이벤트루프.run_until_complete(코루틴객체 또는 퓨처객체)
+
+await로 네이티브코루틴 실행하기
+변수=await 코루틴객체
+변수=await 퓨처객체
+변수=await 태스크객체
+
+async with
+클래스나 함수를 비동기로 처리한 뒤 결과를 반환하는 문법
+class 클래스이름:
+	async def __aenter__(self):
+		코드
+	async def __aexit__(self, exc_type, exc_value, traceback):
+		코드
+async with 클래스() as 변수:
+	코드
+
+async for
+async for로 동작하는 클래스를 만들려면 __aiter__와 __anext__메서드를 구현해야 함
+
+프로퍼티 사용하기
+클래스에서 메서드를 통해 속성의 값을 가져오거나 저장가능
+@property
+@메서드이름.setter
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
